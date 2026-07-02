@@ -103,4 +103,5 @@ Example response shape:
 
 `point` is the main forecast. `q10`, `q50`, and `q90` are forecast quantiles;
 lower-to-higher quantiles give a rough uncertainty band. `mean` is the model's
-mean forecast. `horizon` is the number of future steps returned.
+mean forecast. `horizon` is the number of future steps returned. `max_context`
+is the maximum number of recent history points the model uses from each series.
