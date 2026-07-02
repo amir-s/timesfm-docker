@@ -15,6 +15,8 @@ CI builds and publishes this image to GitHub Container Registry:
 docker pull ghcr.io/amir-s/timesfm-docker:latest
 ```
 
+The published image supports `linux/amd64` and `linux/arm64`.
+
 ## Run
 
 With Docker Compose:
