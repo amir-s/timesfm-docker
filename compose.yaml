@@ -1,0 +1,19 @@
+services:
+  timesfm:
+    build:
+      context: .
+    image: timesfm-docker:latest
+    ports:
+      - "${TIMESFM_PORT:-8765}:8765"
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8765
+      HF_HOME: /cache/huggingface
+      MODEL_ID: google/timesfm-2.5-200m-pytorch
+    volumes:
+      - timesfm-cache:/cache/huggingface
+    restart: unless-stopped
+
+volumes:
+  timesfm-cache:
+
