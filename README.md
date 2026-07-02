@@ -9,6 +9,12 @@ small JSON HTTP API and downloads model weights into a Docker volume on first us
 docker build -t timesfm-docker:latest .
 ```
 
+CI builds and publishes this image to GitHub Container Registry:
+
+```bash
+docker pull ghcr.io/amir-s/timesfm-docker:latest
+```
+
 ## Run
 
 With Docker Compose:
@@ -25,6 +31,15 @@ docker volume create timesfm-cache
 docker run --rm -p 8765:8765 \
   -v timesfm-cache:/cache/huggingface \
   timesfm-docker:latest
+```
+
+With the registry image:
+
+```bash
+docker volume create timesfm-cache
+docker run --rm -p 8765:8765 \
+  -v timesfm-cache:/cache/huggingface \
+  ghcr.io/amir-s/timesfm-docker:latest
 ```
 
 Open `http://127.0.0.1:8765/healthz` to check the service.
